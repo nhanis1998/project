@@ -1,0 +1,16 @@
+.thumbnail {
+    text-align: center;
+}
+.thumbnail img {
+    width: 100%;
+}
+.snippet{
+    font-weight: 400;
+    font-size: 14px;
+    color: #888;
+}
+.post-meta{
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 0;
+}

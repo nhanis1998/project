@@ -1,13 +1,44 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+import "./index.css";
+import App from "./App";
+import SearchGG from "./pages/searchgg";
+import Index_01 from "./pages/template/01/";
+import Index_02 from "./pages/template/02/";
+import reportWebVitals from "./reportWebVitals";
+import Index_03 from "./pages/template/03";
+import Index_04 from "./pages/template/04";
+import Index_05 from "./pages/template/05";
+import Index_06 from "./pages/template/06";
+import About from "./pages/template/06/components/about";
+import Products from "./pages/template/06/components/products";
+import Product from "./pages/template/06/components/product";
+import Cart from "./pages/template/06/components/cart";
+import Index_07 from "./pages/template/07";
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <App />
+    <Router>
+      <Routes>
+        <Route path="/" element={<App />}>
+          <Route path="search" element={<SearchGG />} />
+          <Route path="template01" element={<Index_01 />} />
+          <Route path="template02" element={<Index_02 />} />
+          <Route path="template03" element={<Index_03 />} />
+          <Route path="template04" element={<Index_04 />} />
+          <Route path="template05" element={<Index_05 />} />
+          <Route path="template06" element={<Index_06 />}>
+            <Route path="about" element={<About />} />
+            <Route path="cart" element={<Cart />} />
+            <Route path="products" element={<Products />} />
+            <Route path="products/:productId" element={<Product />} />
+          </Route>
+          <Route path="template07" element={<Index_07 />} />
+        </Route>
+      </Routes>
+    </Router>
   </React.StrictMode>
 );
 
