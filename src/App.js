@@ -55,6 +55,7 @@ export default function App() {
       getItem(<Link to="/template05">Template Censor</Link>, "2-5"),
       getItem(<Link to="/template06">Mẫu Responsive</Link>, "2-6"),
       getItem(<Link to="/template07">Mẫu chart </Link>, "2-7"),
+      getItem(<Link to="/template08">Code Excel </Link>, "2-8"),
     ]),
   ];
   return (
