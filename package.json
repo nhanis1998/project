@@ -5,6 +5,7 @@
   "dependencies": {
     "@ant-design/icons": "^5.3.5",
     "@apollo/client": "^3.9.9",
+    "@linways/table-to-excel": "^1.0.4",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",

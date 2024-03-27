@@ -17,7 +17,9 @@ import Products from "./pages/template/06/components/products";
 import Product from "./pages/template/06/components/product";
 import Cart from "./pages/template/06/components/cart";
 import Index_07 from "./pages/template/07";
+import Index_08 from "./pages/template/08";
 const root = ReactDOM.createRoot(document.getElementById("root"));
+
 root.render(
   <React.StrictMode>
     <Router>
@@ -36,6 +38,7 @@ root.render(
             <Route path="products/:productId" element={<Product />} />
           </Route>
           <Route path="template07" element={<Index_07 />} />
+          <Route path="template08" element={<Index_08 />} />
         </Route>
       </Routes>
     </Router>
