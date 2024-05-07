@@ -20,3 +20,15 @@ export async function GetIPNow() {
   }
   return response;
 }
+
+export async function GetIpInfo(ip) {
+  const options = {
+    method: "GET",
+    url: `http://ip-api.com/json/${ip}`,
+  };
+  const response = await fetcher(options).catch((err) => err);
+  if (response instanceof Error) {
+    return response;
+  }
+  return response;
+}

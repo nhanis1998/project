@@ -18,11 +18,18 @@ import Product from "./pages/template/06/components/product";
 import Cart from "./pages/template/06/components/cart";
 import Index_07 from "./pages/template/07";
 import Index_08 from "./pages/template/08";
+import Weather from "./pages/project/project-weather";
+import Login from "./pages/login";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(
   <React.StrictMode>
     <Router>
+      <Routes>
+        <Route path="/login" element={<Login />}>
+          Login
+        </Route>
+      </Routes>
       <Routes>
         <Route path="/" element={<App />}>
           <Route path="search" element={<SearchGG />} />
@@ -39,6 +46,7 @@ root.render(
           </Route>
           <Route path="template07" element={<Index_07 />} />
           <Route path="template08" element={<Index_08 />} />
+          <Route path="/project/weather" element={<Weather />} />
         </Route>
       </Routes>
     </Router>

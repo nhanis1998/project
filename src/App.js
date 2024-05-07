@@ -1,4 +1,5 @@
 import "./App.css";
+import Wellcome from "./pages/wellcome";
 import { Link, Outlet } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import {
@@ -7,15 +8,12 @@ import {
   MenuFoldOutlined,
   MenuUnfoldOutlined,
   QuestionCircleOutlined,
+  FundProjectionScreenOutlined,
 } from "@ant-design/icons";
 import { Breadcrumb, Layout, Menu, Button, theme, Grid } from "antd";
 import { useEffect, useState } from "react";
 const { Header, Content, Footer, Sider } = Layout;
 const { useBreakpoint } = Grid;
-
-const ContentW = () => {
-  return <div className="card">Hello, I'm Nero. Wellcome to my website</div>;
-};
 
 export default function App() {
   const location = useLocation();
@@ -49,13 +47,18 @@ export default function App() {
     ),
     getItem("Template", "sub", <UserOutlined />, [
       getItem(<Link to="/template01">List of Countries</Link>, "2-1"),
-      getItem(<Link to="/template02">Template 02</Link>, "2-2"),
+      getItem(<Link to="/template02">IP</Link>, "2-2"),
       getItem(<Link to="/template03">Library</Link>, "2-3"),
       getItem(<Link to="/template04">GraphQL</Link>, "2-4"),
       getItem(<Link to="/template05">Template Censor</Link>, "2-5"),
       getItem(<Link to="/template06">Mẫu Responsive</Link>, "2-6"),
       getItem(<Link to="/template07">Mẫu chart </Link>, "2-7"),
-      getItem(<Link to="/template08">Code Excel </Link>, "2-8"),
+      getItem("Code Document", "2-8", "", [
+        getItem(<Link to="/template08">Code Document </Link>, "2-8-1"),
+      ]),
+    ]),
+    getItem("Project", "pro", <FundProjectionScreenOutlined />, [
+      getItem(<Link to="/project/weather">Project Wearther</Link>, "pro-1"),
     ]),
   ];
   return (
@@ -69,6 +72,7 @@ export default function App() {
         collapsed={collapsed}
         onCollapse={(value) => setCollapsed(value)}
         style={{ display: collapsed === true ? "none" : "block" }}
+        width={250}
       >
         <div className="demo-logo-vertical" />
         <Menu theme="dark" mode="inline" items={items} />
@@ -97,27 +101,15 @@ export default function App() {
             style={{
               margin: "16px 0",
             }}
-          >
-            {/* <Breadcrumb.Item>User</Breadcrumb.Item>
-            <Breadcrumb.Item>Bill</Breadcrumb.Item> */}
-          </div>
+          ></div>
           <div
             style={{
               padding: "2rem",
-              // minHeight: 850,
-              // background: colorBgContainer,
-
               minHeight: "850px",
               background: colorBgContainer,
-              // display: "flex",
-              // alignItems: "center",
-              // flexDirection: "column",
-              // paddingTop: "2rem",
-              // paddingBottom: "2rem",
-              // boxSizing: "border-box",
             }}
           >
-            {location.pathname === "/" ? <ContentW /> : <Outlet />}
+            {location.pathname === "/" ? <Wellcome /> : <Outlet />}
           </div>
         </Content>
         <Footer

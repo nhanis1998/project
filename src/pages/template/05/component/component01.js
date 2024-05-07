@@ -1,5 +1,15 @@
 import React, { useEffect, useState, useForm } from "react";
-import { Form, Col, Input, Button, DatePicker, Space, Radio } from "antd";
+import {
+  Form,
+  Col,
+  Input,
+  Button,
+  DatePicker,
+  Space,
+  Radio,
+  Select,
+} from "antd";
+
 import { EditorState, convertToRaw } from "draft-js";
 import { Editor } from "react-draft-wysiwyg";
 import draftToHtml from "draftjs-to-html";
@@ -49,6 +59,39 @@ export default function Component01() {
   const onChangeDate = (e) => {
     const date = moment(e).format("DD/MM/YYYY");
     console.log(date);
+  };
+
+  const data = [
+    {
+      label: "China",
+      value: "1",
+      emoji: "🇨🇳",
+      desc: "China (中国)",
+    },
+    {
+      label: "USA",
+      value: "2",
+      emoji: "🇺🇸",
+      desc: "USA (美国)",
+    },
+    {
+      label: "Japan",
+      value: "3",
+      emoji: "🇯🇵",
+      desc: "Japan (日本)",
+    },
+    {
+      label: "Korea",
+      value: "4",
+      emoji: "🇰🇷",
+      desc: "Korea (韩国)",
+    },
+  ];
+
+  const onSubmit = (e) => {
+    const a = e.type;
+    const val = a.slice(0, a.indexOf("@"));
+    console.log(val);
   };
   return (
     <>
@@ -174,6 +217,55 @@ export default function Component01() {
           <Form.Item>
             <Button htmlType="submit">Gửi thông tin</Button>
           </Form.Item>
+        </Form>
+      </Col>
+
+      <Col
+        xs={24}
+        style={{ marginTop: 20, border: "1px solid #000", padding: 40 }}
+      >
+        <Form onFinish={onSubmit}>
+          <Col xs={24}>
+            <Form.Item
+              labelCol={{ span: 24 }}
+              wrapperCol={{ span: 24 }}
+              rules={[{ required: true, message: "Vui lòng chọn kênh bán!" }]}
+              name="type"
+            >
+              <Select
+                allowClear={true}
+                size="middle"
+                showSearch
+                placeholder="Chọn kênh bán"
+                filterOption={(input, option) =>
+                  option.props.children
+                    ?.toLowerCase()
+                    .indexOf(input.toLowerCase()) >= 0 ||
+                  option.props.value
+                    .toString()
+                    ?.toLowerCase()
+                    .indexOf(input.toLowerCase()) >= 0 ||
+                  option.props.value
+                    .toString()
+                    ?.toLowerCase()
+                    .indexOf(input.toLowerCase()) >= 0
+                }
+              >
+                {data.map((item) => {
+                  return (
+                    <Select.Option value={item.value + "@" + item.label}>
+                      {item.label}
+                    </Select.Option>
+                  );
+                })}
+              </Select>
+            </Form.Item>
+          </Col>
+          <Col xs={24}>
+            <Form.Item>
+              <Button htmlType="submit">Submit</Button>
+            </Form.Item>
+          </Col>
         </Form>
       </Col>
     </>
