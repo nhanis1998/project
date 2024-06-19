@@ -18,7 +18,10 @@ import Product from "./pages/template/06/components/product";
 import Cart from "./pages/template/06/components/cart";
 import Index_07 from "./pages/template/07";
 import Index_08 from "./pages/template/08";
+import Index_09 from "./pages/template/09";
+import Index_10 from "./pages/template/10";
 import Weather from "./pages/project/project-weather";
+import Shop01 from "./pages/project/project-shop01";
 import Login from "./pages/login";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
@@ -46,8 +49,12 @@ root.render(
           </Route>
           <Route path="template07" element={<Index_07 />} />
           <Route path="template08" element={<Index_08 />} />
+          <Route path="template09" element={<Index_09 />} />
+          <Route path="template10" element={<Index_10 />} />
           <Route path="/project/weather" element={<Weather />} />
+          <Route path="/project/shop01" element={<Shop01 />} />
         </Route>
+        <Route path="template10" element={<Index_10 />} />
       </Routes>
     </Router>
   </React.StrictMode>

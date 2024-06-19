@@ -54,11 +54,14 @@ export default function App() {
       getItem(<Link to="/template06">Mẫu Responsive</Link>, "2-6"),
       getItem(<Link to="/template07">Mẫu chart </Link>, "2-7"),
       getItem("Code Document", "2-8", "", [
-        getItem(<Link to="/template08">Code Document </Link>, "2-8-1"),
+        getItem(<Link to="/template08">Import Excel </Link>, "2-8-1"),
+        getItem(<Link to="/template09">Export Excel </Link>, "2-8-2"),
       ]),
+      getItem(<Link to="/template07">TypeScript </Link>, "2-10"),
     ]),
     getItem("Project", "pro", <FundProjectionScreenOutlined />, [
       getItem(<Link to="/project/weather">Project Wearther</Link>, "pro-1"),
+      getItem(<Link to="/project/shop01">Project Shop 01</Link>, "pro-2"),
     ]),
   ];
   return (
